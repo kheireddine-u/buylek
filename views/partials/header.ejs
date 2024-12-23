@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/styles.css" rel="stylesheet">
+  <link href="/assets/font-awesome/css/all.min.css" rel="stylesheet">
+  <title>Buylek Store</title>
+</head>
+<body>
+  <header class="bg-gray-900 text-white mb-0 px-[5%]">
+    <nav class="container mx-auto p-4 flex justify-between items-center relative">
+      <a href="/" class="absolute inset-x-0 mx-auto w-max logo">
+        <i class="fas fa-store font-bold store-icon text-yellow-200"></i>
+        <span class="buy mr-1">BUY </span> <span class="lek"> LEK</span>
+      </a>
+  
+      <div class="ml-auto relative">
+        <button id="burgerMenu" class="focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        
+        <ul id="dropdownMenu" class="dropdown-menu mt-4 -mr-5">
+          <% if (isAdmin) { %>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/products">Manage Products</a></li>
+            <li><a href="/admin/orders">Manage Orders</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% } else { %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+    <!-- Banner -->  
+     <% if(hideBanner){ %>
+      <div class="mb-[-35px]"></div>
+    <% }else { %> 
+    <div class="bg-yellow-500 text-center z-10 mb-[-35px] py-2">
+      <p class="text-black font-semibold">اشترِ الآن واحصل على شحن مجاني لكل الطلبات فوق 5000 دج!</p>
+   </div>
+    <% } %>
+  <main class="container mx-auto mt-8 "></main>
+
+  <script>
+    // Dropdown menu toggle
+    const burgerMenu = document.getElementById('burgerMenu');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    burgerMenu.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('active'); // Add or remove 'active' class
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!burgerMenu.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.remove('active');
+      }
+    });
+    //--------------------
+  function changeMainImage(imageElement) {
+    const mainImage = document.getElementById('mainImage');
+    mainImage.src = imageElement.src;
+  }
+//--------------------------
+function toggleDetails(orderId) {
+    const detailsRow = document.getElementById(`details-${orderId}`);
+    detailsRow.classList.toggle('hidden');
+  }
+  //----------------------
+
+  </script>
+</body>
+</html>

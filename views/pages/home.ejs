@@ -1,0 +1,157 @@
+<%- include('../partials/header') %>
+<section class="px-[5%] py-5 bg-neutral-100 mt-0 lg:py-10">
+  <div class="grid lg:grid-cols-2 items-center justify-items-center gap-5">
+      <div class="order-2 lg:order-1 flex flex-col justify-center items-center">
+          <p class="text-4xl font-bold md:text-7xl text-yellow-500">25% OFF</p>
+          <p class="text-4xl font-bold  md:text-5xl leading-snug text-gray-900 text-center px-7 my-4">عروض حصرية لهذا الأسبوع: لا تفوّت الفرصة!</p>
+          <p class="mt-2 text-sm md:text-lg text-gray-900">BUYLEK! إشتري لك</p>
+          <a href="/products" class="text-lg md:text-2xl bg-black text-white py-2 px-5 mt-6 hover:bg-zinc-800 text-center">
+            تسوق الآن
+          </a>      </div>
+      <div class="order-1 lg:order-2 shadow-lg">
+          <img class="h-80 w-80 object-cover lg:w-[500px] lg:h-[500px]" src="/images/collection.png" alt="">
+      </div> 
+  </div>
+</section>
+<!-- Why Us Section -->
+<section class="px-[5%] py-16 bg-white">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold text-gray-900">لماذا نحن؟</h2>
+    <p class="text-gray-600 mt-2 " >اكتشف الميزات التي تجعلنا الأفضل</p>
+  </div>
+  <div class="grid md:grid-cols-4 gap-5">
+    <!-- Card 1 -->
+    <div class="bg-neutral-100 shadow-lg rounded-lg p-5  py-8 text-center">
+      <div class="text-yellow-500 text-4xl mb-3">
+        <i class="fas fa-shipping-fast"></i> <!-- Replace with your preferred icon -->
+      </div>
+      <h3 class="text-xl font-bold text-gray-900">شحن سريع</h3>
+      <p class="text-gray-600 mt-2">نوفر خدمة الشحن السريع لجميع طلباتك.</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="bg-neutral-100 shadow-lg rounded-lg p-5 py-8 text-center">
+      <div class="text-yellow-500 text-4xl mb-3">
+        <i class="fas fa-money-bill-wave"></i> <!-- Replace with your preferred icon -->
+      </div>
+      <h3 class="text-xl font-bold text-gray-900">أسعار مناسبة</h3>
+      <p class="text-gray-600 mt-2">نضمن لك أفضل الأسعار في السوق.</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="bg-neutral-100 shadow-lg rounded-lg p-5 py-8 text-center">
+      <div class="text-yellow-500 text-4xl mb-3">
+        <i class="fas fa-thumbs-up"></i> <!-- Replace with your preferred icon -->
+      </div>
+      <h3 class="text-xl font-bold text-gray-900">جودة مضمونة</h3>
+      <p class="text-gray-600 mt-2">نقدم منتجات مختارة بعناية لضمان الجودة.</p>
+    </div>
+    <!-- Card 4 -->
+    <div class="bg-neutral-100 shadow-lg rounded-lg p-5 py-8 text-center">
+      <div class="text-yellow-500 text-4xl mb-3">
+        <i class="fas fa-headset"></i> <!-- Replace with your preferred icon -->
+      </div>
+      <h3 class="text-xl font-bold text-gray-900">دعم فني</h3>
+      <p class="text-gray-600 mt-2">نحن هنا لمساعدتك على مدار الساعة.</p>
+    </div>
+  </div>
+</section>
+<!-- Products Section -->
+<section class="px-[5%] py-10 bg-neutral-100" dir="rtl">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold text-gray-900">منتجاتنا</h2>
+    <p class="text-gray-600 mt-2">استكشف منتجاتنا المميزة!</p>
+  </div>
+  <div class="grid md:grid-cols-4 gap-5">
+    <% products.forEach(product => { %>
+      <div class="shadow-lg rounded-lg bg-yellow-50 p-5">
+        <img class="w-full h-64 object-cover rounded-lg cursor-pointer" src="<%= product.image %>" alt="<%= product.name %>">
+        <h3 class="text-xl font-bold text-gray-900 mt-4"><%= product.name %></h3>
+        <p class="text-yellow-500 line-through mt-2"><%= product.oldPrice %> دج</p>
+        <p class="text-gray-900 font-bold text-lg"><%= product.price %> دج</p>
+        <a href="/products/<%= product._id %>" class="bg-gray-900 text-white py-2 px-4 rounded-lg mt-4 inline-block hover:bg-gray-700">إشتري الآن</a>
+      </div>
+    <% }) %>
+  </div>
+  <div class="text-center my-16">
+    <a href="/products" class="bg-gray-900 text-white py-2 px-4 rounded-lg mt-8 hover:bg-gray-700">عرض المزيد</a>
+  </div>
+</section>
+<!-- Testimonials Section -->
+<section class="px-[10%] py-10 bg-white" dir="rtl">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold text-gray-900">آراء العملاء</h2>
+    <p class="text-gray-600 mt-2">ماذا يقول عملاؤنا عنا؟</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-5">
+    <!-- Testimonial Card 1 -->
+    <div class="bg-yellow-50 shadow-lg rounded-lg p-5">
+      <div class="w-16 h-16 mx-auto text-6xl">😊</div>
+      <h3 class="text-xl font-bold text-gray-900 mt-4">محمد ساقي</h3>
+      <p class="text-yellow-600 text-lg mt-2">★★★★★</p>
+      <p class="text-gray-900 mt-3">أفضل تجربة تسوق على الإطلاق! 🛒 المنتجات رائعة وخدمة العملاء ممتازة. 💯</p>
+    </div>
+    <!-- Testimonial Card 2 -->
+    <div class="bg-yellow-50 shadow-lg rounded-lg p-5">
+      <div class="w-16 h-16 mx-auto text-6xl">😃</div>
+      <h3 class="text-xl font-bold text-gray-900 mt-4">سارة عبد الله</h3>
+      <p class="text-yellow-600 text-lg mt-2">★★★★☆</p>
+      <p class="text-gray-900 mt-3">الأسعار مناسبة جداً 💸 والمنتجات ذات جودة عالية. 🏆</p>
+    </div>
+    <!-- Testimonial Card 3 -->
+    <div class="bg-yellow-50 shadow-lg rounded-lg p-5">
+      <div class="w-16 h-16 mx-auto text-6xl">👍</div>
+      <h3 class="text-xl font-bold text-gray-900 mt-4">أحمد يوسف</h3>
+      <p class="text-yellow-600 text-lg mt-2">★★★★★</p>
+      <p class="text-gray-900 mt-3">سرعة في الشحن 🚚 وخدمة ما بعد البيع رائعة! 🌟</p>
+    </div>
+  </div>
+</section>
+<!-- Follow Us Section -->
+<section class="relative w-full min-h-[300px]" dir="rtl">
+  <!-- Background Wrapper -->
+  <div class="absolute inset-0 grid grid-cols-1 lg:grid-cols-2">
+    <div class="bg-yellow-500"></div>
+    <div class="bg-gray-900"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative px-[10%] py-10 z-10">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-white">تابعنا</h2>
+      <p class="text-white mt-2">كن على اطلاع على أحدث المنتجات والأخبار</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <!-- Social Media Links -->
+      <div class="text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-5">وسائل التواصل الاجتماعي</h3>
+        <div class="flex justify-center bg-yellow-50 py-2 sm:bg-transparent  gap-5 text-4xl">
+          <a href="https://www.tiktok.com/@buylek1" target="_blank" class="text-gray-900 hover:text-gray-700">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.facebook.com/buylek.store" target="_blank" class="text-blue-600 hover:text-blue-500">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/buy_lek/" target="_blank" class="text-pink-500 hover:text-pink-400">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Contact Info -->
+      <div class="text-center">
+        <h3 class="text-2xl font-bold text-white mb-5">تواصل معنا</h3>
+        <div class="flex flex-col items-center gap-4 text-lg">
+          <div class="flex items-center gap-3">
+            <i class="fas fa-phone-alt text-green-500 text-2xl"></i>
+            <span class="text-white" dir="ltr">+213 783 90 75 05</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fas fa-envelope text-blue-500 text-2xl"></i>
+            <span class="text-white">info@buylek.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%- include('../partials/footer') %>

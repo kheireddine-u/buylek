@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Cairo';
+    src: url('/assets/fonts/Cairo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Cairo';
+    src: url('/assets/fonts/Cairo-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  body {
+    font-family: 'Cairo', sans-serif;
+
+  }
+  .logo {
+    font-size: 1.5rem;   
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  .logo .buy { 
+    color: #FFD700; /* Gold color for "BUY" */
+  }
+  .logo .lek {
+    color: white; /* White color for "Lek" */
+  }
+  .logo .store-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Spacing between the icon and text */
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #1f2937; /* Dark gray background */
+    color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 10rem;
+    z-index: 10;
+  }
+  .dropdown-menu.active {
+    display: block;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: white;
+  }
+  .dropdown-menu a:hover {
+    background-color: #374151; /* Lighter gray for hover */
+  }
+  .popup {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .table-auto th,
+.table-auto td {
+  text-align: left;
+  padding: 8px;
+}
+
+.table-auto th {
+  background-color: #f7f7f7;
+}
+
+.table-auto tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}

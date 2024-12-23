@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<!-- Banner Section -->
+<section class="bg-yellow-500  text-center py-10">
+  <h1 class="text-4xl font-bold text-white">استمتع بأفضل العروض على منتجاتنا</h1>
+  <p class="text-lg text-gray-800 mt-4">!اختار من بين مجموعة واسعة من المنتجات المميزة التي تلبي جميع احتياجاتك</p>
+</section>
+
+<!-- Products Section -->
+<section class="py-10 px-[5%]" dir="rtl">
+  <h2 class="text-2xl font-bold mb-10 text-center">جميع المنتجات </h2>
+  <div class="grid md:grid-cols-4 gap-5">
+    <% products.forEach(product => { %>
+      <div class="shadow-lg rounded-lg bg-yellow-50 p-5">
+        <img class="w-full h-64 object-cover rounded-lg cursor-pointer" src="<%= product.image %>" alt="<%= product.name %>">
+        <h3 class="text-xl font-bold text-gray-900 mt-4"><%= product.name %></h3>
+        <p class="text-yellow-500 line-through mt-2"><%= product.oldPrice %> دج</p>
+        <p class="text-gray-900 font-bold text-lg"><%= product.price %> دج</p>
+        <a href="/products/<%= product._id %>" class="bg-gray-900 text-white py-2 px-4 rounded-lg mt-4 inline-block hover:bg-gray-700">
+          إشتري الآن
+        </a>      </div>
+    <% }) %>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>
