@@ -4,7 +4,7 @@ const wilayas = require('../data/wilayas')
 exports.getHomePage = async (req, res) => {
   try {
     const products = await Product.find().limit(8)
-    res.render('pages/home', { products, hideBanner: true, isAdmin: false })
+    res.render('pages/home', { products, hideBanner: false, isAdmin: false })
   } catch (err) {
     res.status(500).send('Error fetching products')
   }
@@ -13,7 +13,11 @@ exports.getHomePage = async (req, res) => {
 exports.getProducts = async (req, res) => {
   try {
     const products = await Product.find()
-    res.render('pages/products', { products, hideBanner: true, isAdmin: false })
+    res.render('pages/products', {
+      products,
+      hideBanner: false,
+      isAdmin: false,
+    })
   } catch (err) {
     res.status(500).send('Error fetching products')
   }
@@ -26,7 +30,7 @@ exports.getProductDetails = async (req, res) => {
     res.render('pages/product-details', {
       product,
       wilayas,
-      hideBanner: true,
+      hideBanner: false,
       isAdmin: false,
     })
   } catch (err) {
