@@ -11,6 +11,7 @@ const productRoutes = require('./routes/productRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const authRoutes = require('./routes/authRoutes')
 const adminRoutes = require('./routes/adminRoutes')
+const { error } = require('console')
 
 const app = express()
 const PORT = 3000
@@ -24,13 +25,26 @@ app.use(express.json())
 app.use(cookieParser())
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {})
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'Connection error:'))
-db.once('open', () => {
-  console.log('Connected to MongoDB')
-})
-
+const DB = process.env.CLOUD_MONGODB_URI
+const LOCAL_DB = process.env.MONGODB_URI
+// connect to mongoDB data base
+if (process.env.NODE_ENV === 'production') {
+  mongoose
+    .connect(DB, {
+      //return a promise
+    })
+    .then((con) => {
+      console.log('db connection successful!')
+    })
+} else if (process.env.NODE_ENV === 'development') {
+  mongoose
+    .connect(LOCAL_DB, {
+      //return a promise
+    })
+    .then((con) => {
+      console.log('local db connection successful!')
+    })
+}
 // Routes
 app.get('/', getHomePage)
 app.get('/login', getLoginPage)

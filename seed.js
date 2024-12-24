@@ -1,8 +1,11 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 const Product = require('./models/productModel')
-
-mongoose.connect(process.env.MONGODB_URI, {})
+if (process.env.NODE_ENV === 'production') {
+  mongoose.connect(process.env.CLOUD_MONGODB_URI, {})
+} else if (process.env.NODE_ENV === 'development') {
+  mongoose.connect(process.env.MONGODB_URI, {})
+}
 
 const seedProducts = [
   {
